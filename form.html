@@ -8,15 +8,32 @@
     <script src="https://smtpjs.com/v3/smtp.js">
     </script>
     <script src="./script.js"></script>
+    <script>
+        function sendEmail(event) {
+            event.preventDefault()
+            Email.send({
+                SecureToken : "3cdaadf2-02e6-44ba-9d85-121515b8e127",
+                To : 'olivier.andre@sdworx.com',
+                From : "olivierandre1986@gmail.com",
+                Subject : "This is the subject",
+                Body : "And this is the body"
+            }).then(
+                message => alert(message)
+            ).catch(e => console.log(e));
+
+
+        }
+    </script>
 </head>
 <body>
-<form>
+<form onsubmit="sendEmail(event)">
     <label for="fname">First name:</label><br>
     <input type="text" id="fname" name="fname"/><br>
     <label for="lname">Last name:</label><br>
     <input type="text" id="lname" name="lname"/><br>
     <label for="email">Email:</label><br>
     <input type="email" id="email" name="email"/><br>
+    <button type="submit">Submit</button>
     
 </form>
 
